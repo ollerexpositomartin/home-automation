@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HomeAutomationApplication {
 
 	public static void main(String[] args) throws IOException {
-		Server socketServer = Server.getInstance(80);
+		Server socketServer = Server.getInstance(443);
 		socketServer.startServer();
 
 	SpringApplication.run(HomeAutomationApplication.class, args);
