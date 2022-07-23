@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HomeAutomationApplication {
 
 	public static void main(String[] args) throws IOException {
-		Server socketServer = Server.getInstance(System.getenv("PORT") != null ? Integer.parseInt(System.getenv("PORT")) : 80);
+		Server socketServer = Server.getInstance(4000);
 		socketServer.startServer();
 
 	SpringApplication.run(HomeAutomationApplication.class, args);
