@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.moex.homeAutomation.domain.models.ActionMessage;
 import com.moex.homeAutomation.domain.models.ActionMessage.States;
 import com.moex.homeAutomation.socket.ServerWebSocket;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import java.io.IOException;
@@ -16,8 +13,8 @@ import java.util.Set;
 @RestController
 public class HomeController {
 
-    @GetMapping("/actionON/{id}")
-    public String executeActionON(@PathVariable String id){
+    @GetMapping("/actionON")
+    public String executeActionON(@RequestParam String id){
         Set<WebSocketSession> connections = ServerWebSocket.getInstance().getConnections();
 
         ActionMessage action = new ActionMessage(id,States.ON.name());
