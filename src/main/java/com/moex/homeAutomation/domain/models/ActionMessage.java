@@ -1,7 +1,7 @@
 package com.moex.homeAutomation.domain.models;
 
 
-public class Action {
+public class ActionMessage {
 
     enum States {
         ON,OFF
@@ -10,9 +10,9 @@ public class Action {
     private String id;
     private String value;
 
-    private Action() {}
+    private ActionMessage() {}
 
-    public Action(String id,String value){
+    public ActionMessage(String id, String value){
         this.id = id;
         this.value = value;
     }
