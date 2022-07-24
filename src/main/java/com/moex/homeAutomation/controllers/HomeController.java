@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.moex.homeAutomation.domain.models.ActionMessage;
 import com.moex.homeAutomation.domain.models.ActionMessage.States;
 import com.moex.homeAutomation.socket.ServerWebSocket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -13,9 +15,12 @@ import java.util.Set;
 @RestController
 public class HomeController {
 
-    @GetMapping("/actionON")
-    public String executeActionON(@RequestParam String id){
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+    @GetMapping("/actionON/{id}")
+    public String executeActionON(@PathVariable String id){
         Set<WebSocketSession> connections = ServerWebSocket.getInstance().getConnections();
+        logger.info(id);
 
         ActionMessage action = new ActionMessage(id,States.ON.name());
         String json = new Gson().toJson(action);
