@@ -14,6 +14,7 @@ import java.util.Set;
 public class HomeController {
 
     @GetMapping("/actionON")
+    @RequestMapping(produces = "text/plain;charset=UTF-8")
     public String executeActionON(@RequestParam String id){
         Set<WebSocketSession> connections = ServerWebSocket.getInstance().getConnections();
 
