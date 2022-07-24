@@ -3,7 +3,7 @@ package com.moex.homeAutomation.domain.models;
 
 public class ActionMessage {
 
-    enum States {
+    public enum States {
         ON,OFF
     }
 
