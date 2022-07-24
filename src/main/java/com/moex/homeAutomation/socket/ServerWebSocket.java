@@ -1,17 +1,12 @@
 package com.moex.homeAutomation.socket;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 import org.springframework.web.util.HtmlUtils;
-
-import java.io.IOException;
-import java.time.LocalTime;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -32,17 +27,13 @@ public class ServerWebSocket extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        logger.info("Server connection opened");
+        logger.info("Client connected "+ session.getRemoteAddress());
         connections.add(session);
-
-        TextMessage message = new TextMessage("one-time message from server");
-        logger.info("Server sends: {}", message);
-        session.sendMessage(message);
     }
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
-        logger.info("Server connection closed: {}", status);
+        logger.info("client disconnected "+session.getRemoteAddress());
         connections.remove(session);
     }
 
