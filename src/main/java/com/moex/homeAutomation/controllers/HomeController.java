@@ -17,8 +17,8 @@ public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @GetMapping("/actionON/{id}")
-    public String executeActionON(@PathVariable String id){
+    @GetMapping("/actionON")
+    public String executeActionON(@RequestParam String id){
         Set<WebSocketSession> connections = ServerWebSocket.getInstance().getConnections();
         logger.info(id);
 
