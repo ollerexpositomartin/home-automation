@@ -8,11 +8,8 @@ import java.io.IOException;
 @SpringBootApplication
 public class HomeAutomationApplication {
 
-	public static void main(String[] args) throws IOException {
-		//Server socketServer = Server.getInstance(Integer.parseInt(System.getenv("PORT")));
-		//socketServer.startServer();
-
-	SpringApplication.run(HomeAutomationApplication.class, args);
-	}
+    public static void main(String[] args) throws IOException {
+        SpringApplication.run(HomeAutomationApplication.class, args);
+    }
 
 }
